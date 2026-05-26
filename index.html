@@ -2,43 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <title>Birthday Surprise 💖</title>
+
     <style>
-        body { background: linear-gradient(135deg, #2d1b4e 0%, #ff9a9e 100%); font-family: sans-serif; color: white; text-align: center; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .polaroid { background: white; padding: 15px; border: 1px solid #ddd; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: inline-block; margin: 10px; width: 250px; }
-        .polaroid img { width: 100%; height: 250px; object-fit: cover; }
-        .letter { background: #fffdf5; color: #333; padding: 30px; border-radius: 15px; max-width: 400px; margin: 20px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-size: 1.1rem; line-height: 1.6; }
-        .hidden { display: none; }
-        button { background: #ff4757; color: white; border: none; padding: 20px 40px; font-size: 1.5rem; border-radius: 50px; cursor: pointer; }
+        body {
+            background: linear-gradient(135deg, #2d1b4e 0%, #ff9a9e 100%);
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: inline-block;
+            margin: 10px;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .letter {
+            background: #fffdf5;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 450px;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff6b81;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
     </style>
 </head>
+
 <body>
 
     <div id="start">
-        <h1>A special surprise for you! 💌</h1>
-        <button onclick="showSurprise()">Click for your gift, Chintaa Hati!</button>
+        <h1>A Special Surprise For You 💌</h1>
+
+        <button onclick="showSurprise()">
+            Click For Your Gift, Chintaa Hati 💖
+        </button>
     </div>
 
+    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-   <div id="gift" class="hidden">
-        <div class="polaroid"><img src="birthday.jpg"></div>
-        
+    <!-- Surprise Content -->
+    <div id="gift" class="hidden">
+
+        <div class="polaroid">
+            <img src="birthday.jpg" alt="Birthday Photo">
+        </div>
+
         <div class="letter">
-            Happy birthday Chintaa kuu 😻💗. 
-            May Allah bless my seketul Eyraa 🧸💗. 
-            Always be happy with, loving me as always and dont ever give up with me and our future okayy also always keep the pace for your study okay later we will have graduation together yeayyyy 😻💗. 
+            Happy birthday Chintaa kuu 😻💗 <br><br>
+
+            May Allah bless my seketul Eyraa 🧸💗 <br><br>
+
+            Always be happy with me, loving me as always and don’t ever give up on me and our future okayy 💖<br><br>
+
+            Also always keep the pace for your study okay later we will have graduation together yeayyyy 😻💗<br><br>
+
             Enjoy your day my pretty girl love youu always chintaa 🥺💗
         </div>
+
     </div>
 
     <script>
         function showSurprise() {
-            document.getElementById('start').style.display = 'none';
-            document.getElementById('gift').classList.remove('hidden');
-            document.getElementById('bgMusic').play();
+
+            // Hide start screen
+            document.getElementById("start").style.display = "none";
+
+            // Show surprise
+            document.getElementById("gift").classList.remove("hidden");
+
+            // Play music
+            const music = document.getElementById("bgMusic");
+
+            music.volume = 0.5;
+
+            music.play().catch((error) => {
+                console.log("Autoplay blocked:", error);
+            });
         }
     </script>
+
 </body>
 </html>
